@@ -3,8 +3,8 @@
     package="org.apache.cordova.test" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="14" />
+        android:minSdkVersion="15"
+        android:targetSdkVersion="15" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
@@ -13,8 +13,18 @@
         android:label="Tests for org.apache.cordova.test"
         android:targetPackage="org.apache.cordova.test" />
 
-    <application>
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.0" />
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
         <uses-library android:name="android.test.runner" />
+
+        <activity android:name="org.apache.cordova.CordovaActivity" />
+        <activity android:name="com.example.mylib.MyActivity" />
     </application>
 
 </manifest>

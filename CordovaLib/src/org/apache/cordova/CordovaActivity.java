@@ -43,6 +43,8 @@ import android.view.WindowManager;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
+import com.example.mylib.MyActivity;
+
 /**
  * This class is the main Android activity that represents the Cordova
  * application. It should be extended by the user to load the specific
@@ -74,7 +76,7 @@ import android.widget.FrameLayout;
  * deprecated in favor of the config.xml file.
  *
  */
-public class CordovaActivity extends Activity {
+public class CordovaActivity extends MyActivity {
     public static String TAG = "CordovaActivity";
 
     // The webview for our app
@@ -108,32 +110,6 @@ public class CordovaActivity extends Activity {
 
         String logLevel = preferences.getString("loglevel", "ERROR");
         LOG.setLogLevel(logLevel);
-
-        LOG.i(TAG, "Apache Cordova native platform version " + CordovaWebView.CORDOVA_VERSION + " is starting");
-        LOG.d(TAG, "CordovaActivity.onCreate()");
-
-        if (!preferences.getBoolean("ShowTitle", false)) {
-            getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        }
-
-        if (preferences.getBoolean("SetFullscreen", false)) {
-            LOG.d(TAG, "The SetFullscreen configuration is deprecated in favor of Fullscreen, and will be removed in a future version.");
-            preferences.set("Fullscreen", true);
-        }
-        if (preferences.getBoolean("Fullscreen", false)) {
-            // NOTE: use the FullscreenNotImmersive configuration key to set the activity in a REAL full screen
-            // (as was the case in previous cordova versions)
-            if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) && !preferences.getBoolean("FullscreenNotImmersive", false)) {
-                immersiveMode = true;
-            } else {
-                getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                        WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            }
-        } else {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-        }
-
         super.onCreate(savedInstanceState);
 
         cordovaInterface = makeCordovaInterface();

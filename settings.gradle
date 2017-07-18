@@ -1,4 +1,4 @@
-include ':mylib', ':mylibrary'
+include ':mylib'
 // GENERATED FILE - DO NOT EDIT
 include ":"
 include ":CordovaLib"
