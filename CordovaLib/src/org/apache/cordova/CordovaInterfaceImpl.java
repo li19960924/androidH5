@@ -223,7 +223,9 @@ public class CordovaInterfaceImpl implements CordovaInterface {
 
     public void requestPermissions(CordovaPlugin plugin, int requestCode, String [] permissions) {
         int mappedRequestCode = permissionResultCallbacks.registerCallback(plugin, requestCode);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         getActivity().requestPermissions(permissions, mappedRequestCode);
+      }
     }
 
     public boolean hasPermission(String permission)

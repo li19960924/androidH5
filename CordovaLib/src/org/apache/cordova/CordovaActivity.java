@@ -44,31 +44,7 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
 import com.example.mylib.MyActivity;
-
 /**
- * This class is the main Android activity that represents the Cordova
- * application. It should be extended by the user to load the specific
- * html file that contains the application.
- *
- * As an example:
- *
- * <pre>
- *     package org.apache.cordova.examples;
- *
- *     import android.os.Bundle;
- *     import org.apache.cordova.*;
- *
- *     public class Example extends CordovaActivity {
- *       &#64;Override
- *       public void onCreate(Bundle savedInstanceState) {
- *         super.onCreate(savedInstanceState);
- *         super.init();
- *         // Load your application
- *         loadUrl(launchUrl);
- *       }
- *     }
- * </pre>
- *
  * Cordova xml configuration: Cordova uses a configuration file at
  * res/xml/config.xml to specify its settings. See "The config.xml File"
  * guide in cordova-docs at http://cordova.apache.org/docs for the documentation
